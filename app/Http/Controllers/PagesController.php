@@ -17,6 +17,18 @@ class PagesController extends Controller
     public function contact(){
         return view('pages.contact');
     }
+    
+    public function student(){
+        return view('pages.student');
+    }
+
+    public function company(){
+        return view('pages.company');
+    }
+
+    public function company_register(){
+        return view('pages.regcompany');
+    }
 
     public function services(){
         $data = array(

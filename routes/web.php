@@ -19,6 +19,21 @@ Route::get('/', 'PagesController@index');
 Route::get('/about', 'PagesController@about');
 Route::get('/services', 'PagesController@services');
 Route::get('/contact', 'PagesController@contact');
+Route::get('/student', 'PagesController@student');
+Route::get('/company', 'PagesController@company');
+Route::get('/company/register', 'PagesController@company_register');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//TODO: Group admin
+// Route::prefix('admin')->group(function){}
+Route::get('/admin', 'AdminController@index')->name('admin.dashboard');
+Route::get('/admin/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
+Route::POST('/admin/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
+
+//TODO group company
+// Route::prefix('company')->group(){}
+Route::get('/company-dashboard','CompanyController@index')->name('company.dashboard');
+Route::get('/company/login','Auth\CompanyLoginController@showLoginForm')->name('company.login');
+Route::POST('/company/login', 'Auth\CompanyLoginController@login')->name('company.login.submit'); 
