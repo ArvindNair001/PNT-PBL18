@@ -14,6 +14,10 @@ class PagesController extends Controller
         return view('pages.about');
     }
 
+    public function upload(){
+        return view('pages.upload-marksheet');
+    }
+
     public function contact(){
         return view('pages.contact');
     }
@@ -28,6 +32,10 @@ class PagesController extends Controller
 
     public function company_register(){
         return view('pages.regcompany');
+    }
+
+    public function jobs(){
+        return view('pages.job');
     }
 
     public function services(){

@@ -4,7 +4,7 @@
     <div class="container">
     </br>
         <h1>Company Registration</h1>
-        {!! Form::open() !!}
+        {!! Form::open(['action' => 'CompanyController@register', 'method' => 'POST']) !!}
             <div class="form-group">
                 {{Form::label('title', 'Name')}}
                 {{Form::text('title', '', ['class' => 'form-control', 'placeholder' => 'Company Name'])}}
@@ -19,7 +19,7 @@
             </div>
             <div class="form-group">
                     {{Form::label('contact','Contact')}}
-                    {{Form::text('contact','',['class'=> 'form-control', 'placeholder'=>'Company Number'])}}
+                    {{Form::number('contact','',['class'=> 'form-control', 'placeholder'=>'Company Number'])}}
                 </div>
             <div class="form-group">
                 {{Form::label('body', 'Description')}}
@@ -31,4 +31,26 @@
     </div>
 @endsection
 
-
+{{-- 
+<script>
+        $(document).ready(function() {
+            $(document).on('company-regform', '#reg-form', function(e) {
+             var data = $("#reg-form").serialize();
+             e.preventDefault();
+                $.ajax({
+                    type: 'POST',
+                    url: '{{url("/getContact")}}',
+                    data: data,
+                    success: function(data) {
+                     alert("success");
+                     console.log(data);
+     
+                    },
+                    error: function(data) {
+                        alert("error");
+                    }
+                });
+                return false;
+            });
+        });
+</script> --}}

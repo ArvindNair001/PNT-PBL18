@@ -53,7 +53,7 @@ return [
         
         'company' => [
             'driver' => 'session',
-            'provider' => 'company',
+            'provider' => 'companies',
         ]
     ],
 
@@ -85,7 +85,7 @@ return [
             'model' => App\Admin::class,
         ],
 
-        'company' => [
+        'companies' => [
             'driver' => 'eloquent',
             'model' => App\Company::class,
         ],
@@ -124,8 +124,8 @@ return [
             'expire' => 60,
         ],
 
-        'companys' => [
-            'provider' => 'company',
+        'companies' => [
+            'provider' => 'companies',
             'table' => 'password_resets',
             'expire' => 60,
         ],

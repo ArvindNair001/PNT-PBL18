@@ -26,15 +26,18 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
                             </li>
+                            @if(Auth::guard('company')->check())
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Add Job<span class="sr-only">(current)</span></a>
-                            </li>
+                            </li>  
+                            @endif
+                            @if(Auth::guard('admin')->check())
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Add company</a>
                             </li>
+                            @endif
                         </ul>
                         @endguest
-
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->

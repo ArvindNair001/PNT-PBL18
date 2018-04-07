@@ -48,11 +48,14 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        $messages = array(
+            'email.regex' => 'register with your MES id only!',
+        );
         return Validator::make($data, [
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'email' => 'required|string|email|max:255|unique:users|regex:/student\.mes\.ac\.in/',
             'password' => 'required|string|min:6|confirmed',
-        ]);
+        ],$messages);
     }
 
     /**

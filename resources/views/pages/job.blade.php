@@ -1,7 +1,11 @@
+@extends('layouts.app')
+
+@section('content')
+<br>
 <div class="container">
 
 	<div id="login-form">
-    <form method="post" autocomplete="off">
+    <form method="post" action="{{ route('job.submit') }}" autocomplete="off">
     
     	<div class="col-md-12">
         
@@ -31,7 +35,7 @@
             <div class="form-group">
             	<div class="input-group">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-home"></span></span>
-            	<input type="text" name="jvacancy" class="form-control" placeholder="Job Vacancy" />
+            	<input type="number" name="jvacancy" class="form-control" placeholder="Job Vacancy" />
                 </div>
                 
             </div>
@@ -54,11 +58,13 @@
             
         </div>
     </form>
-    </div>	
+    </div>
 </div>
-</body>
-</html>
-<?php
+@endsection
+
+
+
+{{-- <?php
 if(isset($_REQUEST['jtitle'])){
     $name = $_SESSION['username'];
     $cname = $_REQUEST['jtitle'];
@@ -70,4 +76,4 @@ if(isset($_REQUEST['jtitle'])){
     $result = mysqli_query($conn,$query) or die(mysql_error());
     header("Location: addjobs.php?msg=add_success");
 }
-?>
+?> --}}

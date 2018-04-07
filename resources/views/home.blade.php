@@ -14,7 +14,26 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                   <div class="container">
+                        <div class="form-group">
+                                <div class="form-control" style="overflow: hidden;">
+                                    <h4 style="float: left;">Apply for Job</h4>
+                                    <a class="btn btn-primary btn-lg" style="float: right; " href="#" role="button">list available</a> 
+                                </div>
+                        </div>
+                       <div class="form-group">
+                           <div class="form-control" style="overflow: hidden;">
+                               <h4 style="float: left;">Academic Data</h4>
+                                <a class="btn btn-primary btn-lg" style="float: right;" href="/academics" role="button">Manage</a> 
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-control" style="overflow: hidden;">
+                                <h4 style="float: left;">Skills</h4>
+                                    <a class="btn btn-primary btn-lg" style="float: right;" href="#" role="button">Manage</a> 
+                            </div>
+                        </div>
+                   </div>
                 </div>
             </div>
         </div>
