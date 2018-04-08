@@ -26,6 +26,13 @@ class JobsController extends Controller
         //
     }
 
+
+    public function createSkill(Request $request){
+        $this->validate($request,[
+            ''
+        ]);
+    }
+
     /**
      * Store a newly created resource in storage.
      *

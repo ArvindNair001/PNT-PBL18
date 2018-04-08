@@ -3,9 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
+use App\Skill;
+use App\StudentSkill;
+use App\RequirementSkill;
 
 class StudentsController extends Controller
 {
+
+
+    public function __construct(){
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +22,7 @@ class StudentsController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.skill');
     }
 
     /**
@@ -21,9 +30,9 @@ class StudentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function listIndex()
     {
-        //
+      //s  $list = Marks::('SELECT avg_CGPI FROM marks WHERE user_id = ?'); 
     }
 
     /**
@@ -46,6 +55,27 @@ class StudentsController extends Controller
     public function show($id)
     {
         //
+    }
+
+    public function addSkills(Request $request){
+        $this->validate($request,[
+            'std-requirement' => 'required'
+        ]);
+
+        $rqrmnt_string = $request->input('std-requirement');
+        $rqrmnt = explode(',',$rqrmnt_string);
+
+        foreach($rqrmnt as $ele){
+            $skill = new Skill;
+            $skill->skill = $ele; 
+            $skill_id = new StudentSkill;
+            $skill->save();
+            $skillID = Skill::orderBy('created_at','desc')->take(1)->get()->id;
+            $skill_id->skills_id = $skillID ;
+            $skill_id->user_id = auth()->user()->id;
+            $skill_id->save();
+        }
+        return redirect('/home');
     }
 
     /**
@@ -79,6 +109,6 @@ class StudentsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
     }
 }

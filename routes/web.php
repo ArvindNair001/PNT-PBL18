@@ -26,8 +26,9 @@ Route::get('/company', 'PagesController@company');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-//Route::get('/jobs', 'PagesController@jobs');
-//Route::POST('/jobs', 'CompanyController@addjobs')->name('job.submit');
+Route::POST('/company/register', 'CompanyController@register'); 
+Route::get('/jobs', 'PagesController@jobs');
+Route::POST('/jobs', 'CompanyController@addjob')->name('job.submit');
 
 //TODO: Group admin
 // Route::prefix('admin')->group(function){}
@@ -41,10 +42,10 @@ Route::get('/company-dashboard','CompanyController@index')->name('company.dashbo
 Route::get('/company/login','Auth\CompanyLoginController@showLoginForm')->name('company.login');
 Route::POST('/company/login', 'Auth\CompanyLoginController@login')->name('company.login.submit');
 Route::get('/company/register', 'PagesController@company_register');
-Route::POST('/company/register', 'CompanyController@register'); 
 
 //Student Route
-
+Route::get('/skills','StudentsController@index')->name('skills');
+Route::POST('/skills','StudentsController@addSkills');
 //upload
 Route::get('/upload', 'UploadController@index');
 Route::resource('upload', 'UploadController');

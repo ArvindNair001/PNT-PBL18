@@ -30,7 +30,7 @@
                         <div class="form-group">
                             <div class="form-control" style="overflow: hidden;">
                                 <h4 style="float: left;">Skills</h4>
-                                    <a class="btn btn-primary btn-lg" style="float: right;" href="#" role="button">Manage</a> 
+                                    <a class="btn btn-primary btn-lg" style="float: right;" href="/skills" role="button">Manage</a> 
                             </div>
                         </div>
                    </div>

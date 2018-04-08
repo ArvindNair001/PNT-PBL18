@@ -9,6 +9,14 @@
                     </div>
             </div>
                 {!! Form::open(['action' => 'UploadController@semester', 'method' => 'POST']) !!}
+                <div class="container">
+                    <div class="form-group">
+                            <div class="form-control" style="overflow: hidden;">
+                                <h4 style="float: left;">Apply for Job</h4>
+                                <a class="btn btn-primary btn-lg"  href="#" style="float: right; " role="button">list available</a> 
+                    </div>                   
+                    
+                    <br>
                 <div class="form-group">
                         <div class="form-control">
                                 {{Form::label('cur_sem','Current SEM')}}                    
@@ -16,10 +24,10 @@
                                     'SE' => array(4 => 'SEM 4'),
                                     'TE' => array(5 => 'SEM 5', 6 => 'SEM 6'),
                                     'BE' => array(7 => 'SEM 7', 8 => 'SEM 8'),
-                                    ))}}
+                        ))}}
+                        {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
                         </div>
                     </div>
-                    {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
                 {!! Form::close() !!}
                 </div>
         <div class="form-group">
@@ -29,4 +37,5 @@
             </div>
         </div>
     </div>
+</div>
 @endsection

@@ -20,6 +20,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/company">Company</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/login">Admin</a>
+                        </li>
                     </ul>
                     @else
                     <ul class="navbar-nav mr-auto">
@@ -28,7 +31,7 @@
                             </li>
                             @if(Auth::guard('company')->check())
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Add Job<span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="/jobs">Add Job<span class="sr-only">(current)</span></a>
                             </li>  
                             @endif
                             @if(Auth::guard('admin')->check())
