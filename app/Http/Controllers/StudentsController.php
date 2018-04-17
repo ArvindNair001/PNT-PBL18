@@ -65,15 +65,17 @@ class StudentsController extends Controller
         $rqrmnt_string = $request->input('std-requirement');
         $rqrmnt = explode(',',$rqrmnt_string);
 
+        $count = 0;
         foreach($rqrmnt as $ele){
             $skill = new Skill;
             $skill->skill = $ele; 
-            $skill_id = new StudentSkill;
             $skill->save();
-            $skillID = Skill::orderBy('created_at','desc')->take(1)->get()->id;
-            $skill_id->skills_id = $skillID ;
-            $skill_id->user_id = auth()->user()->id;
-            $skill_id->save();
+            $skill_std = new StudentSkill;
+            $skillID = Skill::orderBy('created_at','desc')->first()->id;
+            $skill_std->skills_id = $skillID + $count ;
+            $skill_std->user_id = auth()->user()->id;
+            $skill_std->save();
+            $count++;
         }
         return redirect('/home');
     }

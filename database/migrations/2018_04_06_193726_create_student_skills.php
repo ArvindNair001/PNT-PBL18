@@ -17,6 +17,7 @@ class CreateStudentSkills extends Migration
             $table->increments('id');
             $table->unsignedInteger('skills_id');
             $table->unsignedInteger('user_id');
+            $table->string('branch');
             $table->timestamps();
         });
 
@@ -33,8 +34,9 @@ class CreateStudentSkills extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('student_skills');
-        $table->dropForeign('student_skills_skills_id_foreign');
-        $table->dropForeign('student_skills_user_id_foreign');
+        Schema::dropIfExists('student_skills', function($table){
+            $table->dropForeign('student_skills_skills_id_foreign');
+            $table->dropForeign('student_skills_user_id_foreign');
+        });
     }
 }

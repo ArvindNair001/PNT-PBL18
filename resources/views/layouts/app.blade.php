@@ -12,9 +12,18 @@
 
     <!-- StyleSheet-->
     <link rel="stylesheet" href="{{ asset('css/app.css')}}">
+    
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $.ajaxSetup({
+            headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+    </script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -31,5 +40,7 @@
             @yield('content')
         </div>
     </div>
+    
+    @yield('javascript')
 </body>
 </html>

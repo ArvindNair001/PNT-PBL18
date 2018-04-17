@@ -28,7 +28,17 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::POST('/company/register', 'CompanyController@register'); 
 Route::get('/jobs', 'PagesController@jobs');
+// Route::POST('/fetchskills','JobsController@fetchskill');
+
+// Route::get('/fetchskills',function(){
+//     return 'ajax is awesome';
+// });
+
+Route::get('/fetchskills','JobsController@fetchskills');
+// Route::post('/fetchskills','JobsController@fetchskills');
+
 Route::POST('/jobs', 'CompanyController@addjob')->name('job.submit');
+
 
 //TODO: Group admin
 // Route::prefix('admin')->group(function){}

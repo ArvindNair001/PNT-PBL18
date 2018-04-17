@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Skill;
 
 class JobsController extends Controller
 {
@@ -21,11 +22,24 @@ class JobsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function test()
     {
+        $branch = $_GET['branch'];
+        $skills = Skill::where('branch',$branch)->get();
+        // json_encode($data)
+        // var_dump($data);
+        return "$skills";
         //
     }
-
+    public function fetchskills(Request $request){
+        // if(Request::ajax()){
+        //     return 'ajax successfull';
+        // }
+        $branch = $_GET['branch'];
+        // $skills = new Skill;
+        $skills = Skill::where('branch',$branch)->get();
+        return "$skills";
+    }
 
     public function createSkill(Request $request){
         $this->validate($request,[

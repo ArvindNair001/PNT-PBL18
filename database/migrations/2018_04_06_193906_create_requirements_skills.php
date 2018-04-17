@@ -17,10 +17,11 @@ class CreateRequirementsSkills extends Migration
             $table->increments('id');
             $table->unsignedInteger('skills_id');
             $table->unsignedInteger('jobs_id');
+            $table->string('branch');
             $table->timestamps();
         });
 
-        Schema::table('requirement_skills',function ($table){
+        Schema::table('requirement_skills',function ( $table){
             $table->foreign('skills_id')->references('id')->on('skills')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('jobs_id')->references('id')->on('jobs')->onUpdate('cascade')->onDelete('cascade');
         });
@@ -33,8 +34,10 @@ class CreateRequirementsSkills extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('requirement_skills');
-        $table->dropForeign('requirement_skills_skills_id_foreign');
-        $table->dropForeign('requirement_skills_jobs_id_foreign');
+        Schema::dropIfExists('requirement_skills', function($table){
+            $table->dropForeign('requirement_skills_skills_id_foreign');
+            $table->dropForeign('requirement_skills_jobs_id_foreign');
+            
+        });                
     }
 }
