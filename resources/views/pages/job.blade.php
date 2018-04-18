@@ -43,7 +43,7 @@
             <div class="form-group">
                     <div class="input-group">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-home"></span></span>
-                    <input type="number" name="jcriteria" class="form-control" placeholder="Minimum Criteria (0 for none)" />
+                    <input type="number" name="jcriteria" step=0.01 class="form-control" placeholder="Minimum Criteria (0 for none)" />
                     </div>
                 </div>    
 
@@ -147,7 +147,7 @@
                 var inputs = container.find('input');
                 var eleid = inputs.length+1;
 
-                $('<input />', { type: 'checkbox', id: 'cb'+eleid, value: id }).appendTo(container);
+                $('<input />', { type: 'checkbox', id: 'cb'+eleid, value:id, name:'skills[]' }).appendTo(container);
                 $('<label />', { 'for': 'cb'+eleid, text: name }).appendTo(container);
                 $('<br\>').appendTo(container);
             }

@@ -26,4 +26,10 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    public function marks(){
+        return $this->hasOne('App\Marks');
+    }
+    public function upload(){
+        return $this->hasOne('App\Upload');
+    }
 }

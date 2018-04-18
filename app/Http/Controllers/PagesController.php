@@ -37,6 +37,9 @@ class PagesController extends Controller
     public function jobs(){
         return view('pages.job');
     }
+    public function studentJobs() {
+        return view('pages.studentJobs');
+    }
 
     public function services(){
         $data = array(

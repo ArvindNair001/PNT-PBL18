@@ -28,13 +28,17 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::POST('/company/register', 'CompanyController@register'); 
 Route::get('/jobs', 'PagesController@jobs');
+Route::get ('/users/jobs','PagesController@studentJobs');
+Route::POST('/users/apply','StudentsController@jobs')->name('jobs.apply');
 // Route::POST('/fetchskills','JobsController@fetchskill');
 
 // Route::get('/fetchskills',function(){
 //     return 'ajax is awesome';
 // });
 
+//AJAX Requests
 Route::get('/fetchskills','JobsController@fetchskills');
+Route::get('/fetchJobs', 'StudentsController@fetchjobs');
 // Route::post('/fetchskills','JobsController@fetchskills');
 
 Route::POST('/jobs', 'CompanyController@addjob')->name('job.submit');
@@ -55,7 +59,7 @@ Route::get('/company/register', 'PagesController@company_register');
 
 //Student Route
 Route::get('/skills','StudentsController@index')->name('skills');
-Route::POST('/skills','StudentsController@addSkills');
+Route::POST('/skills','StudentsController@addSkills')->name('skills.add');
 //upload
 Route::get('/upload', 'UploadController@index');
 Route::resource('upload', 'UploadController');

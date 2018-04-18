@@ -18,7 +18,7 @@
                         <div class="form-group">
                                 <div class="form-control" style="overflow: hidden;">
                                     <h4 style="float: left;">Apply for Job</h4>
-                                    <a class="btn btn-primary btn-lg" style="float: right; " href="#" role="button">list available</a> 
+                                    <a class="btn btn-primary btn-lg" style="float: right; " href="/users/jobs" role="button">list available</a> 
                                 </div>
                         </div>
                        <div class="form-group">

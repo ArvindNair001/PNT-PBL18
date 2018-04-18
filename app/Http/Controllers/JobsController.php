@@ -31,6 +31,10 @@ class JobsController extends Controller
         return "$skills";
         //
     }
+    public function jobs()
+    {
+        return 'ajax returned Hello World';
+    }
     public function fetchskills(Request $request){
         // if(Request::ajax()){
         //     return 'ajax successfull';

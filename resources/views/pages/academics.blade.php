@@ -9,14 +9,6 @@
                     </div>
             </div>
                 {!! Form::open(['action' => 'UploadController@semester', 'method' => 'POST']) !!}
-                <div class="container">
-                    <div class="form-group">
-                            <div class="form-control" style="overflow: hidden;">
-                                <h4 style="float: left;">Apply for Job</h4>
-                                <a class="btn btn-primary btn-lg"  href="#" style="float: right; " role="button">list available</a> 
-                    </div>                   
-                    
-                    <br>
                 <div class="form-group">
                         <div class="form-control">
                                 {{Form::label('cur_sem','Current SEM')}}                    
